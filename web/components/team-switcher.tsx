@@ -16,7 +16,7 @@ import {
     SidebarMenuItem,
     useSidebar,
 } from "@/components/ui/sidebar"
-export function TeamSwitcher({
+export function Logo({
                                  teams,
                              }: {
     teams: {
@@ -40,9 +40,9 @@ export function TeamSwitcher({
                                 <activeTeam.logo className="size-4" />
                             </div>
                             <div className="grid flex-1 text-left text-sm leading-tight">
-                                <span className="truncate font-bold">
-                                    Project81
-                                </span>
+                                <h1 className="truncate font-bold text-xl text-black tracking-wider">
+                                    PROJECT81.
+                                </h1>
                             </div>
                             <ChevronsUpDown className="ml-auto" />
                         </SidebarMenuButton>

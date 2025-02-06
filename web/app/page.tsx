@@ -13,6 +13,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
+import TravelPlanner from "@/app/travel-planner";
 export default function Home() {
   return (
       <SidebarProvider>
@@ -26,20 +27,18 @@ export default function Home() {
                 <BreadcrumbList>
                   <BreadcrumbItem className="hidden md:block">
                     <BreadcrumbLink href="#">
-                      Building Your Application
+                      Travel Planner
                     </BreadcrumbLink>
                   </BreadcrumbItem>
                   <BreadcrumbSeparator className="hidden md:block" />
                   <BreadcrumbItem>
-                    <BreadcrumbPage>Data Fetching</BreadcrumbPage>
+                    <BreadcrumbPage className="font-semibold">La Union Adventure: 3-Day Itinerary </BreadcrumbPage>
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>
             </div>
           </header>
-          <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-            <h1 className="3xl font-bold">Content</h1>
-          </div>
+          <TravelPlanner/>
         </SidebarInset>
       </SidebarProvider>
   )

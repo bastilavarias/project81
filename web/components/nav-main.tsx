@@ -7,7 +7,6 @@ import {
 } from "@/components/ui/collapsible"
 import {
     SidebarGroup,
-    SidebarGroupLabel,
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
@@ -15,6 +14,7 @@ import {
     SidebarMenuSubButton,
     SidebarMenuSubItem,
 } from "@/components/ui/sidebar"
+import {Button} from "@/components/ui/button";
 export function NavMain({
                             items,
                         }: {
@@ -30,15 +30,14 @@ export function NavMain({
     }[]
 }) {
     return (
-        <SidebarGroup>
-            <SidebarGroupLabel>Platform</SidebarGroupLabel>
-            <SidebarMenu>
+        <SidebarGroup className="p-4 gap-y-10">
+            <SidebarMenu className="gap-2">
                 {items.map((item) => (
                     item.items?.length === 0 ?
                         <SidebarMenuItem key={item.title}>
-                            <SidebarMenuButton tooltip={item.title}>
-                                {item.icon && <item.icon />}
-                                <span>{item.title}</span>
+                            <SidebarMenuButton className="gap-4 py-5 hover:rounded-full" tooltip={item.title}>
+                                {item.icon && <item.icon className="scale-[1.5]" />}
+                                <span className="text-[15px] font-semibold">{item.title}</span>
                             </SidebarMenuButton>
                         </SidebarMenuItem>
                     : ( <Collapsible
@@ -73,6 +72,8 @@ export function NavMain({
 
                 ))}
             </SidebarMenu>
+
+            <Button variant="ghost" className="bg-secondary py-5 rounded-full">New Plan</Button>
         </SidebarGroup>
     )
 }
