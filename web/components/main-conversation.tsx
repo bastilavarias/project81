@@ -1,9 +1,6 @@
-import { Send, MessageCircle, Map, LayoutList, User, X } from 'lucide-react';
+import { Send, MessageCircle, Map, LayoutList, User } from 'lucide-react';
 import * as React from 'react';
 import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
-import { ItineraryContent } from '@/components/itinerary-content';
-import { useState } from 'react';
 
 export default function MainConversation() {
 
@@ -90,7 +87,7 @@ function ChatInput() {
 
 function SelfMessage() {
     return (
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 p-5">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary">
                 <User className="h-5 w-5" />
             </div>
@@ -104,11 +101,9 @@ function SelfMessage() {
 }
 
 function SystemMessage() {
-    const [isItineraryContentSlideOpen, setIsItineraryContentSlideOpen] = useState(false);
-
     return (
         <>
-            <div className="flex items-start gap-4 bg-secondary rounded-3xl p-5">
+            <div className="flex items-start gap-4 transition-colors hover:bg-gray-50 rounded-3xl p-5">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary">
                     <span className="font-bold text-white">81</span>
                 </div>
@@ -140,10 +135,6 @@ function SystemMessage() {
                             </div>
                         ))
                     }
-
-                    <Button variant="outline" className="rounded-full"
-                            onClick={() => setIsItineraryContentSlideOpen(true)}>Show
-                        Itinerary</Button>
                 </div>
 
             </div>

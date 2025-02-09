@@ -1,5 +1,5 @@
-"use client"
-import * as React from "react"
+'use client';
+import * as React from 'react';
 import {
     AudioWaveform,
     Bot,
@@ -9,80 +9,64 @@ import {
     Map,
     PieChart,
     Compass,
-    Heart
-} from "lucide-react"
-import { NavMain } from "@/components/nav-main"
+    Heart,
+} from 'lucide-react';
+import { NavMain } from '@/components/nav-main';
 import {
     Sidebar,
     SidebarContent,
     SidebarHeader,
     SidebarRail,
-} from "@/components/ui/sidebar"
-import {Logo} from "@/components/team-switcher";
+} from '@/components/ui/sidebar';
+import { Logo } from '@/components/team-switcher';
 
 // This is sample data.
 const data = {
     user: {
-        name: "shadcn",
-        email: "m@example.com",
-        avatar: "/avatars/shadcn.jpg",
+        name: 'shadcn',
+        email: 'm@example.com',
+        avatar: '/avatars/shadcn.jpg',
     },
     teams: [
         {
-            name: "Acme Inc",
+            name: 'Acme Inc',
             logo: GalleryVerticalEnd,
-            plan: "Enterprise",
+            plan: 'Enterprise',
         },
         {
-            name: "Acme Corp.",
+            name: 'Acme Corp.',
             logo: AudioWaveform,
-            plan: "Startup",
+            plan: 'Startup',
         },
         {
-            name: "Evil Corp.",
+            name: 'Evil Corp.',
             logo: Command,
-            plan: "Free",
+            plan: 'Free',
         },
     ],
     navMain: [
         {
-            title: "Travel Planner",
-            url: "#",
+            title: 'Travel Planner',
+            url: '#',
             icon: Bot,
             items: [],
         },
         {
-            title: "Explore",
-            url: "#",
+            title: 'Explore',
+            url: '#',
             icon: Compass,
             items: [],
         },
         {
-            title: "Likes",
-            url: "#",
+            title: 'Likes',
+            url: '#',
             icon: Heart,
             items: [],
         },
 
     ],
-    projects: [
-        {
-            name: "Design Engineering",
-            url: "#",
-            icon: Frame,
-        },
-        {
-            name: "Sales & Marketing",
-            url: "#",
-            icon: PieChart,
-        },
-        {
-            name: "Travel",
-            url: "#",
-            icon: Map,
-        },
-    ],
-}
+};
+
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     return (
         <Sidebar collapsible="icon" {...props}>
@@ -94,5 +78,5 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             </SidebarContent>
             <SidebarRail />
         </Sidebar>
-    )
+    );
 }

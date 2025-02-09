@@ -32,12 +32,13 @@ export function NavMain({
     }[]
 }) {
     return (
-        <SidebarGroup className="p-4 gap-y-10">
+        <SidebarGroup className="p-2 gap-y-10">
             <SidebarMenu className="gap-2">
                 {items.map((item) => (
                     item.items?.length === 0 ?
                         <SidebarMenuItem key={item.title}>
-                            <SidebarMenuButton className="gap-4 py-5 hover:rounded-full" tooltip={item.title}>
+                            <SidebarMenuButton className="gap-4 py-5 hover:rounded-full  px-3"
+                                               tooltip={item.title}>
                                 {item.icon && <item.icon className="scale-[1.5]" />}
                                 <span className="text-[15px] font-semibold">{item.title}</span>
                             </SidebarMenuButton>
