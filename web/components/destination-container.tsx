@@ -16,7 +16,7 @@ export default function DestinationContainer() {
     ];
 
     return (
-        <div className="min-h-screen overflow-auto px-10 pb-16">
+        <div className="min-h-screen overflow-auto pb-16">
             <div className="space-y-5">
                 <div>
                     <h1 className="text-2xl font-bold">Dicasalarin Cove</h1>

@@ -18,7 +18,7 @@ export default function ItineraryList() {
     const [isSliderOpen, setIsSliderOpen] = useState(false);
 
     return (
-        <div className="min-h-screen overflow-auto px-10 pb-16">
+        <div className="min-h-screen overflow-auto pb-16">
             <div>
                 <div>
                     <h1 className="mb-4 text-4xl font-semibold">A budget-friendly 3-day itinerary for your trip to
