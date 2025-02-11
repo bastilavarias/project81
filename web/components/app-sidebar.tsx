@@ -4,10 +4,7 @@ import {
     AudioWaveform,
     Bot,
     Command,
-    Frame,
     GalleryVerticalEnd,
-    Map,
-    PieChart,
     Compass,
     Heart,
 } from 'lucide-react';
