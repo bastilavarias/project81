@@ -1,22 +1,43 @@
 'use client';
 
 import type React from 'react';
-import { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { MapPin } from 'lucide-react';
 import 'leaflet/dist/leaflet.css';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import Image from 'next/image';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Heart, MapPin } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
-function Card({ children }: { children: React.ReactNode }) {
+function DestinationCard() {
     return (
-        <div className="overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm">
-            {children}
-        </div>
+        <Card className="bg-white border-none shadow-none">
+            <div className="relative w-full h-80">
+                <Image
+                    src="https://mindtrip.ai/cdn-cgi/image/w=750,format=webp,h=563,fit=cover/https://iorigin.mindtrip.ai/attractions/1748/aab4/37f7/e1b3/ab09/a8e0/f9a8/a4ae"
+                    alt="Beautiful landscape of St. Thomas"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="rounded-3xl"
+                />
+            </div>
+
+            <CardHeader className="px-0 pt-2">
+                <CardTitle className="font-semibold mt-2">
+                    San Juan Public Beach
+                </CardTitle>
+                <CardDescription>
+                    <p className="flex items-center space-x-2">
+                        <MapPin className="w-4 h-4 " /><span>St. John, U.S. Virgin Islands</span>
+                    </p>
+                </CardDescription>
+            </CardHeader>
+        </Card>
     );
 }
 
-export default function DestinationPlanner() {
-    const [selectedTab, setSelectedTab] = useState('all');
 
+export default function DestinationPlanner() {
     const categories = [
         { id: 'your-vibes', label: 'Your Vibes', icon: '👤' },
         { id: 'scenic-views', label: 'Scenic Views', icon: '🏔️' },
@@ -31,19 +52,17 @@ export default function DestinationPlanner() {
     const mainTabs = [
         'All',
         'Restaurants',
-        'Stays',
-        'Things to do',
-        'Guides',
-        'People',
+        'Accommodations',
+        'Activities',
     ];
 
     return (
         <div className="flex h-screen">
             {/* Left side - Navigation and Content */}
-            <div className="flex flex-col w-full max-w-[50%] min-w-[600px] p-4 overflow-y-auto">
+            <div className="flex flex-col w-full max-w-[50%] min-w-[600px]">
                 <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2">
-                        <h1 className="text-xl font-semibold">San Juan</h1>
+                        <h1 className="text-xl font-semibold">La Union</h1>
                         <button className="p-2 hover:bg-gray-100 rounded-full">
                             <svg
                                 width="24"
@@ -86,72 +105,44 @@ export default function DestinationPlanner() {
                     </div>
                 </div>
 
-                <div className="flex gap-4 mb-6 overflow-x-auto">
-                    {mainTabs.map((tab) => (
-                        <button
-                            key={tab}
-                            className={`px-4 py-2 whitespace-nowrap ${
-                                selectedTab === tab.toLowerCase()
-                                    ? 'bg-black text-white rounded-full'
-                                    : 'hover:bg-gray-100 rounded-full'
-                            }`}
-                            onClick={() => setSelectedTab(tab.toLowerCase())}
+                <div className="flex flex-col space-y-5">
+                    <Tabs
+                        defaultValue="All"
+                        className="relative mr-auto min-w-full overflow-x-auto"
+                    >
+                        <TabsList
+                            className="flex space-x-5 h-10 border-b"
+                            variant="outline"
                         >
-                            {tab}
-                        </button>
-                    ))}
-                </div>
+                            {mainTabs.map((tab, key) => (
+                                <TabsTrigger variant="outline" value={tab} key={key}>
+                                    {tab}
+                                </TabsTrigger>
+                            ))}
+                        </TabsList>
+                    </Tabs>
 
-                <div className="flex gap-4 overflow-x-auto pb-4">
-                    {categories.map((category) => (
-                        <button
-                            key={category.id}
-                            className="flex flex-col items-center gap-1 min-w-[80px]"
-                        >
-                            <span className="text-lg">{category.icon}</span>
-                            <span className="text-sm text-gray-500">
+                    <div className="flex gap-4">
+                        {categories.map((category) => (
+                            <button
+                                key={category.id}
+                                className="flex flex-col items-center gap-1 min-w-[80px]"
+                            >
+                                <span className="text-lg">{category.icon}</span>
+                                <span className="text-sm text-gray-500">
                                 {category.label}
                             </span>
-                        </button>
-                    ))}
+                            </button>
+                        ))}
+                    </div>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-6">
-                    <Card>
-                        <div className="relative">
-                            <img
-                                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-kFukHOss4hh3NhRGvaZMYQo5GJAi0N.png"
-                                alt="London street with string lights"
-                                className="w-full h-48 object-cover"
-                            />
-                            <button className="absolute top-2 right-2 p-2 rounded-full bg-white/80 hover:bg-white">
-                                <svg
-                                    width="20"
-                                    height="20"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                >
-                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                                </svg>
-                            </button>
-                            <div className="absolute top-2 left-2 px-2 py-1 bg-white/80 rounded-full text-sm">
-                                1 day
-                            </div>
-                        </div>
-                        <div className="p-4">
-                            <h3 className="font-semibold mb-2">
-                                24-Hour London Adventure: Iconic Sights & Dinner
-                            </h3>
-                            <div className="flex items-center gap-2 text-gray-600">
-                                <MapPin size={16} />
-                                <span className="text-sm">
-                                    Greater London, England
-                                </span>
-                            </div>
-                        </div>
-                    </Card>
+                <div className="pr-6 pb-16 overflow-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                        {[...Array(12)].map((_, i) => (
+                            <DestinationCard key={i} />
+                        ))}
+                    </div>
                 </div>
             </div>
 
