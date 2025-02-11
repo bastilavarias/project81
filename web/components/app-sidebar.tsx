@@ -63,7 +63,6 @@ const data = {
             icon: Heart,
             items: [],
         },
-
     ],
 };
 

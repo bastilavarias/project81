@@ -12,12 +12,14 @@ interface AppTooltipProps {
 }
 
 export default function AppTooltip({ label, children }: AppTooltipProps) {
-    return <TooltipProvider>
-        <Tooltip>
-            <TooltipTrigger>{children}</TooltipTrigger>
-            <TooltipContent>
-                <p>{label}</p>
-            </TooltipContent>
-        </Tooltip>
-    </TooltipProvider>;
+    return (
+        <TooltipProvider>
+            <Tooltip>
+                <TooltipTrigger asChild>{children}</TooltipTrigger>
+                <TooltipContent>
+                    <p>{label}</p>
+                </TooltipContent>
+            </Tooltip>
+        </TooltipProvider>
+    );
 }

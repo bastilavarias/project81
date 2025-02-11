@@ -16,10 +16,11 @@ export default function TravelPlanner() {
     useEffect(() => {
         const updateHeight = () => {
             if (travelPlannerRef.current) {
-                setHeight(window.innerHeight - travelPlannerRef.current.offsetTop);
+                setHeight(
+                    window.innerHeight - travelPlannerRef.current.offsetTop
+                );
             }
         };
-
 
         updateHeight();
         window.addEventListener('resize', updateHeight);
@@ -27,19 +28,21 @@ export default function TravelPlanner() {
     }, []);
 
     return (
-        <div ref={travelPlannerRef} className="flex" style={{ height: `${height}px` }}>
+        <div
+            ref={travelPlannerRef}
+            className="flex"
+            style={{ height: `${height}px` }}
+        >
             <div ref={mainConversationContainerRef} className="w-1/2 h-full">
                 <MainConversation />
             </div>
             <ItineraryMap />
-            <AppSlider isOpen={isSliderOpen} onClose={() => setIsSliderOpen(false)}>
+            <AppSlider
+                isOpen={isSliderOpen}
+                onClose={() => setIsSliderOpen(false)}
+            >
                 <ItineraryList />
             </AppSlider>
         </div>
     );
 }
-
-
-
-
-
