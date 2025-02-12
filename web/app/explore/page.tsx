@@ -107,10 +107,16 @@ export default function ExplorePage() {
                         All
                     </TabsTrigger>
                     <TabsTrigger
-                        value="saved"
+                        value="guides"
                         className="rounded-full px-4 py-2 data-[state=active]:bg-black data-[state=active]:text-white"
                     >
                         Own Trips
+                    </TabsTrigger>
+                    <TabsTrigger
+                        value="favorites"
+                        className="rounded-full px-4 py-2 data-[state=active]:bg-black data-[state=active]:text-white"
+                    >
+                        Favorites
                     </TabsTrigger>
                 </TabsList>
             </Tabs>
@@ -139,6 +145,21 @@ export default function ExplorePage() {
                                     style={{ objectFit: 'cover' }}
                                     className="rounded-3xl"
                                 />
+                                <div className="absolute left-0 top-0 w-full p-3 flex items-center justify-between">
+                                    <Badge
+                                        variant="outline"
+                                        className="bg-white black-text rounded-full text-xs shadow-none border-none"
+                                    >
+                                        3 Days
+                                    </Badge>
+                                    <Button
+                                        variant="ghost"
+                                        size="icon"
+                                        className="text-white"
+                                    >
+                                        <Heart />
+                                    </Button>
+                                </div>
                             </div>
 
                             <CardHeader className="px-0 pt-2">

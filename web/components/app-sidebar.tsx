@@ -52,11 +52,6 @@ const data = {
             url: '/explore',
             icon: Compass,
         },
-        {
-            title: 'Favorites',
-            url: '/favorites',
-            icon: Heart,
-        },
     ],
 };
 
