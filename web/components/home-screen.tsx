@@ -6,7 +6,7 @@ import ItineraryMap from '@/components/itinerary-map';
 import ItineraryList from '@/components/itinerary-list';
 import AppSlider from '@/components/app-slider';
 
-export default function TravelPlanner() {
+export default function HomeScreen() {
     const [height, setHeight] = useState(0);
     const [isSliderOpen, setIsSliderOpen] = useState(true);
 

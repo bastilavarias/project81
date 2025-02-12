@@ -1,5 +1,6 @@
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import React from 'react';
 
 const markers = [
     { id: 1, position: [14.5866, 121.1828], label: 'Altaroca Mountain Resort' },
@@ -9,22 +10,21 @@ const markers = [
     { id: 5, position: [14.5916, 121.1878], label: 'Crescent Moon Cafe' },
 ];
 
-
 export default function ItineraryMap() {
     return (
         <div className="relative w-1/2 border-l">
-            <MapContainer center={[14.5866, 121.1828]} zoom={14} className="h-full w-full z-0"
-                          zoomControl={false}>
-
+            <MapContainer
+                center={[16.6159, 120.3209]}
+                zoom={13}
+                style={{ height: '100%', width: '100%' }}
+            >
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                {markers.map((marker) => (
-                    <Marker key={marker.id} position={marker.position}>
-                        <Popup>{marker.label}</Popup>
-                    </Marker>
-                ))}
+                <Marker position={[16.6159, 120.3209]}>
+                    <Popup>San Juan</Popup>
+                </Marker>
             </MapContainer>
         </div>
     );

@@ -44,21 +44,18 @@ const data = {
     navMain: [
         {
             title: 'Travel Planner',
-            url: '#',
+            url: '/',
             icon: Bot,
-            items: [],
         },
         {
             title: 'Explore',
-            url: '#',
+            url: '/explore',
             icon: Compass,
-            items: [],
         },
         {
-            title: 'Likes',
-            url: '#',
+            title: 'Favorites',
+            url: '/favorites',
             icon: Heart,
-            items: [],
         },
     ],
 };

@@ -3,7 +3,6 @@ import * as React from 'react';
 import { Button } from '@/components/ui/button';
 
 export default function MainConversation() {
-
     return (
         <div className="h-full flex flex-col justify-between overflow-hidden bg-transparent relative">
             <div className="flex justify-center bg-transparent relative">
@@ -12,21 +11,16 @@ export default function MainConversation() {
 
             <div className="flex-1 pt-16 overflow-auto px-14">
                 <div className="space-y-5 py-5">
-                    {
-                        Array.from({ length: 1 }, (_, i) => i + 1).map(() => (
-                            <>
-                                <SelfMessage />
-                                <SystemMessage />
-                            </>
-                        ))
-                    }
-
+                    {Array.from({ length: 1 }, (_, i) => i + 1).map(() => (
+                        <>
+                            <SelfMessage />
+                            <SystemMessage />
+                        </>
+                    ))}
                 </div>
             </div>
 
             <ChatInput />
-
-
         </div>
     );
 }
@@ -54,7 +48,6 @@ function FloatingActionButtonGroup() {
     );
 }
 
-
 function ChatInput() {
     return (
         <div className="px-14 py-4">
@@ -72,14 +65,20 @@ function ChatInput() {
                             autoFocus={true}
                         />
                         <div className="flex gap-1">
-                            <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full hover:bg-secondary">
+                            <Button
+                                variant="ghost"
+                                size="icon"
+                                className="h-8 w-8 rounded-full hover:bg-secondary"
+                            >
                                 <Send className="h-5 w-5 text-zinc-500" />
                                 <span className="sr-only">Send message</span>
                             </Button>
                         </div>
                     </div>
                 </div>
-                <p className="text-center text-xs text-zinc-500">Project81 can make mistakes. Check important info.</p>
+                <p className="text-center text-xs text-zinc-500">
+                    Project81 can make mistakes. Check important info.
+                </p>
             </div>
         </div>
     );
@@ -93,7 +92,8 @@ function SelfMessage() {
             </div>
             <div className="flex-1">
                 <p className="font-medium">
-                    Give me a budget friendly 3 days itinerary in Antipolo City Philippines.
+                    Give me a budget friendly 3 days itinerary in Antipolo City
+                    Philippines.
                 </p>
             </div>
         </div>
@@ -109,39 +109,41 @@ function SystemMessage() {
                 </div>
                 <div className="flex-1 space-y-6">
                     <p className="font-medium">
-                        A budget-friendly 3-day itinerary for your trip to Antipolo City:
+                        A budget-friendly 3-day itinerary for your trip to
+                        Antipolo City:
                     </p>
-                    {
-                        Array.from({ length: 3 }, (_, i) => i + 1).map((day) => (
-                            <div key={day}>
-                                <p className="font-medium mb-5">Day {day}: Lorem ipsum dolor sit amet.</p>
+                    {Array.from({ length: 3 }, (_, i) => i + 1).map((day) => (
+                        <div key={day}>
+                            <p className="font-medium mb-5">
+                                Day {day}: Lorem ipsum dolor sit amet.
+                            </p>
 
-                                <div className="space-y-3">
-                                    {
-                                        Array.from({ length: 5 }, (_, i) => i + 1).map((hour) => (
-                                            <div className="flex flex-col space-y-2" key={hour}>
-                                                <small className="text-xs text-gray-500">{hour + 7}:00 AM</small>
-                                                <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto,
-                                                    possimus unde. Consequuntur, eius facere possimus sit tenetur totam
-                                                    ut.
-                                                    Iste.
-                                                </p>
-                                            </div>
-                                        ))
-                                    }
-
-                                </div>
+                            <div className="space-y-3">
+                                {Array.from({ length: 5 }, (_, i) => i + 1).map(
+                                    (hour) => (
+                                        <div
+                                            className="flex flex-col space-y-2"
+                                            key={hour}
+                                        >
+                                            <small className="text-xs text-muted-foreground">
+                                                {hour + 7}:00 AM
+                                            </small>
+                                            <p>
+                                                Lorem ipsum dolor sit amet,
+                                                consectetur adipisicing elit.
+                                                Iusto, possimus unde.
+                                                Consequuntur, eius facere
+                                                possimus sit tenetur totam ut.
+                                                Iste.
+                                            </p>
+                                        </div>
+                                    )
+                                )}
                             </div>
-                        ))
-                    }
+                        </div>
+                    ))}
                 </div>
-
             </div>
-
         </>
     );
 }
-
-
-

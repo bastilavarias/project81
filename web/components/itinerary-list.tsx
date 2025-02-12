@@ -18,7 +18,7 @@ import {
     SheetTitle,
     SheetTrigger,
 } from '@/components/ui/sheet';
-import DestinationPlanner from '@/components/destination-planner';
+import DestinationSearch from '@/components/destination-search';
 export default function ItineraryList() {
     return (
         <div className="min-h-screen overflow-auto pb-16">
@@ -47,7 +47,7 @@ export default function ItineraryList() {
                                         <span className="text-lg">
                                             Day {n} Arrival & Basco Exploration
                                         </span>
-                                        <span className="text-xs text-gray-500 mt-0.5">
+                                        <span className="text-xs text-muted-foreground mt-0.5">
                                             Thu, May 8 24
                                         </span>
                                     </div>
@@ -86,7 +86,9 @@ export default function ItineraryList() {
                                                 <SheetDescription></SheetDescription>
                                             </SheetHeader>
 
-                                            <DestinationPlanner />
+                                            <div className="py-3">
+                                                <DestinationSearch />
+                                            </div>
                                         </SheetContent>
                                     </Sheet>
                                 </div>

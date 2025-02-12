@@ -62,7 +62,9 @@ export default function ItineraryListLocationCard({
                     </div>
                     <div className="flex items-center gap-2 mt-1">
                         <div className="w-4 h-4" />
-                        <p className="text-xs text-gray-500">{timing}</p>
+                        <p className="text-xs text-muted-foreground">
+                            {timing}
+                        </p>
                     </div>
                 </div>
                 <DropdownMenu>
@@ -76,7 +78,7 @@ export default function ItineraryListLocationCard({
                         </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="w-56">
-                        <DropdownMenuLabel className="text-xs font-normal text-gray-500">
+                        <DropdownMenuLabel className="text-xs font-normal text-muted-foreground">
                             Actions
                         </DropdownMenuLabel>
                         <DropdownMenuItem onClick={() => setIsSliderOpen(true)}>
@@ -99,7 +101,7 @@ export default function ItineraryListLocationCard({
             {/*    <div className="relative">*/}
             {/*        <div*/}
             {/*            className="absolute left-10 top-0 bottom-0 border-l-8 border-dashed border-black -mt-[1px] ml-[1px]" />*/}
-            {/*        <div className="pl-8 py-3 text-xs text-gray-500 relative z-10 bg-white w-fit">{distance} mi</div>*/}
+            {/*        <div className="pl-8 py-3 text-xs text-muted-foreground relative z-10 bg-white w-fit">{distance} mi</div>*/}
             {/*    </div>*/}
             {/*)}*/}
         </Card>
