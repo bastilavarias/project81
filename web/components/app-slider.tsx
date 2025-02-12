@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Sheet, SheetContent, SheetHeader } from '@/components/base-sheet';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -10,15 +10,21 @@ interface AppSliderProps {
     title?: string | null | undefined;
     onClose: () => void;
     children: React.ReactNode;
+    expanded?: boolean;
+    hasContainer?: boolean;
+    className?: string;
 }
 
 export default function AppSlider({
-    isOpen,
-    title = null,
-    onClose,
-    children,
-}: AppSliderProps) {
-    const [isExpanded, setIsExpanded] = useState(false);
+                                      isOpen,
+                                      title = null,
+                                      onClose,
+                                      children,
+                                      expanded = false,
+                                      hasContainer = true,
+                                      className = '',
+                                  }: AppSliderProps) {
+    const [isExpanded, setIsExpanded] = useState(expanded);
 
     /*
      *  Make the outside of sheet clickable.
@@ -31,7 +37,7 @@ export default function AppSlider({
                     'overflow-y-auto pointer-events-auto',
                     isExpanded
                         ? 'xl:w-full xl:max-w-none '
-                        : 'xl:w-[45vw] xl:max-w-none '
+                        : 'xl:w-[45vw] xl:max-w-none ',
                 )}
             >
                 <SheetHeader>
@@ -73,7 +79,9 @@ export default function AppSlider({
                     </div>
                 </SheetHeader>
 
-                <div className="container">{children}</div>
+                <div className={cn(
+                    className,
+                    hasContainer ? 'container mx-auto' : '')}>{children}</div>
             </SheetContent>
         </Sheet>
     );

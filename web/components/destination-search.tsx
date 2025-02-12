@@ -15,9 +15,9 @@ export default function DestinationSearch() {
     const mainTabs = ['All', 'Restaurants', 'Accommodations', 'Things to do'];
 
     return (
-        <div className="flex h-screen">
+        <div className="h-screen grid grid-cols-5 gap-2">
             {/* Left side - Navigation and Content */}
-            <div className="flex flex-col w-full min-w-[600px] max-w-[60%]">
+            <div className="flex flex-col w-full col-span-5 sm:col-span-3">
                 <div className="flex items-center justify-between mb-4 pr-6">
                     <div className="flex items-center gap-2">
                         <h1 className="text-xl font-semibold">La Union</h1>
@@ -77,7 +77,8 @@ export default function DestinationSearch() {
                             All activities in La Union
                         </h3>
 
-                        <Badge className="bg-secondary text-primary px-3 py-1 rounded-full shadow-none hover:bg-secondary">
+                        <Badge
+                            className="bg-secondary text-primary px-3 py-1 rounded-full shadow-none hover:bg-secondary">
                             Beach resorts
                             <button
                                 className="ml-1 p-0.5 rounded-full"
@@ -97,7 +98,7 @@ export default function DestinationSearch() {
             </div>
 
             {/* Right side - Map */}
-            <div className="flex-1">
+            <div className="sm:col-span-2 h-[90vh]">
                 <MapContainer
                     center={[16.6159, 120.3209]}
                     zoom={13}

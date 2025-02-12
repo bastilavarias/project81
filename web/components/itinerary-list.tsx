@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ChevronRight, Plus } from 'lucide-react';
+import { ChevronRight, Plus, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
     Accordion,
@@ -13,13 +13,15 @@ import ItineraryListLocationCard from '@/components/itinerary-list-location-card
 import {
     Sheet,
     SheetContent,
-    SheetDescription,
     SheetHeader,
-    SheetTitle,
     SheetTrigger,
-} from '@/components/ui/sheet';
+} from '@/components/base-sheet';
 import DestinationSearch from '@/components/destination-search';
+import AppSlider from '@/components/app-slider';
+
 export default function ItineraryList() {
+    const [isSliderOpen, setIsSliderOpen] = useState(false);
+
     return (
         <div className="min-h-screen overflow-auto pb-16">
             <div>
@@ -57,7 +59,7 @@ export default function ItineraryList() {
                                 <div className="pl-11 space-y-3 pt-3">
                                     {Array.from(
                                         { length: 3 },
-                                        (_, i) => i + 1
+                                        (_, i) => i + 1,
                                     ).map((e) => (
                                         <ItineraryListLocationCard
                                             image="https://mindtrip.ai/cdn-cgi/image/w=128,format=webp,h=128,fit=cover/https://iorigin.mindtrip.ai/locations/0927/a377/e413/3465/10ba/41fb/6665/a0c0"
@@ -68,35 +70,28 @@ export default function ItineraryList() {
                                             key={e}
                                         />
                                     ))}
-                                    <Sheet>
-                                        <SheetTrigger asChild>
-                                            <Button
-                                                variant="outline"
-                                                className="rounded-full mt-8 shadow-none"
-                                            >
-                                                <Plus /> Add
-                                            </Button>
-                                        </SheetTrigger>
-                                        <SheetContent
-                                            className="w-screen h-screen"
-                                            side="bottom"
-                                        >
-                                            <SheetHeader>
-                                                <SheetTitle></SheetTitle>
-                                                <SheetDescription></SheetDescription>
-                                            </SheetHeader>
-
-                                            <div className="py-3">
-                                                <DestinationSearch />
-                                            </div>
-                                        </SheetContent>
-                                    </Sheet>
+                                    <Button
+                                        variant="outline"
+                                        className="rounded-full mt-8 shadow-none"
+                                        onClick={() => setIsSliderOpen(true)}
+                                    >
+                                        <Plus /> Add
+                                    </Button>
                                 </div>
                             </AccordionContent>
                         </AccordionItem>
                     ))}
                 </Accordion>
             </div>
+
+            <AppSlider
+                className="py-3"
+                isOpen={isSliderOpen}
+                onClose={() => setIsSliderOpen(false)}
+                hasContainer={false}
+                expanded>
+                <DestinationSearch />
+            </AppSlider>
         </div>
     );
 }
